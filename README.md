@@ -3,7 +3,9 @@
 ## ตรวจสอบ Session และ connection
 ```sql
 SELECT * FROM pg_stat_activity;
+```
 หรือ
+```sql
 select pid as process_id, 
        usename as username, 
        datname as database_name, 
