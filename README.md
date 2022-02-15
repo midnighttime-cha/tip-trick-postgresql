@@ -16,3 +16,11 @@ select pid as process_id,
        state_change
 from pg_stat_activity;
 ```
+
+## เช็คซ้ำ Having
+```sql
+SELECT username, email, COUNT(*)
+FROM users
+GROUP BY username, email
+HAVING COUNT(*) > 1
+```
