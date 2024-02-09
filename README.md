@@ -1,5 +1,16 @@
 # SQL สำหรับ PostgreSQL
 
+## สร้าง Database
+```
+CREATE DATABASE [Your Database];
+```
+
+## สร้าง User
+```
+CREATE USER [Your Username] WITH ENCRYPTED PASSWORD '[Your Password]';
+GRANT ALL PRIVILEGES ON DATABASE [Your Database] TO [Your Username];
+```
+
 ## ตรวจสอบ Session และ connection
 ```sql
 SELECT * FROM pg_stat_activity;
