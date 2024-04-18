@@ -35,3 +35,28 @@ FROM users
 GROUP BY username, email
 HAVING COUNT(*) > 1
 ```
+
+## เปลี่ยน Table Owner
+```sql
+ALTER TABLE my_table OWNER TO new_owner;
+```
+
+## เปลี่ยน Sequence Owner
+```sql
+ALTER SEQUENCE my_sequence OWNER TO new_owner;
+```
+
+## เปลี่ยน View Owner
+```sql
+ALTER VIEW my_view OWNER TO new_owner;
+```
+
+## เปลี่ยน Owner ด้วย Script ใน Ubuntu
+```sh
+for tbl in `psql -qAt -c "select tablename from pg_tables where schemaname = '$1';" $2` ; do  psql -c "alter table \"$tbl>
+
+for tbl in `psql -qAt -c "select sequence_name from information_schema.sequences where sequence_schema = '$1';" $2` ; do >
+
+for tbl in `psql -qAt -c "select table_name from information_schema.views where table_schema = '$1';" $2` ; do  psql -c "alter view \"$tbl\" owner to $3" $2 ; done
+
+```
