@@ -65,3 +65,14 @@ for tbl in `psql -qAt -c "select table_name from information_schema.views where 
 ```
 3. จากนั้น run ด้วยคำสั่ง `sh change_owner_pg.sh "ชื่อ schema" "ชื่อ Database" "ชื่อ New Owner"`
 
+## Grant สิทธิ์
+```sql
+GRANT USAGE ON SCHEMA "public", schema_1, schema_2 TO new_owner;
+GRANT SELECT ON ALL TABLES IN SCHEMA "public", schema_1, schema_2 TO new_owner;
+GRANT SELECT ON ALL SEQUENCES IN SCHEMA "public", schema_1, schema_2 TO new_owner ;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA "public", schema_1, schema_2 TO new_owner ;
+GRANT ALL ON ALL TABLES IN SCHEMA "public", schema_1, schema_2 TO new_owner ;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA "public", schema_1, schema_2 TO new_owner ;
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA "public", schema_1, schema_2 TO new_owner ;
+```
+
