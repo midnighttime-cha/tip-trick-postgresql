@@ -76,3 +76,7 @@ GRANT ALL ON ALL SEQUENCES IN SCHEMA "public", schema_1, schema_2 TO new_owner ;
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA "public", schema_1, schema_2 TO new_owner ;
 ```
 
+## Enable GIS Extension
+```sql
+CREATE EXTENSION postgis;
+```
