@@ -74,6 +74,7 @@ GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA "public", schema_1, schema_2 TO new_own
 GRANT ALL ON ALL TABLES IN SCHEMA "public", schema_1, schema_2 TO new_owner ;
 GRANT ALL ON ALL SEQUENCES IN SCHEMA "public", schema_1, schema_2 TO new_owner ;
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA "public", schema_1, schema_2 TO new_owner ;
+GRANT ALL ON SCHEMA "public", schema_1, schema_2 TO new_owner;
 ```
 
 ## Enable GIS Extension
