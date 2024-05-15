@@ -81,3 +81,9 @@ GRANT ALL ON SCHEMA "public", schema_1, schema_2 TO new_owner;
 ```sql
 CREATE EXTENSION postgis;
 ```
+
+## Dump/Restore Database
+```
+pg_dump -h localhost -p 5432 -U [Username] -f backup_15-05-2024.dump [Database Name] -W
+pg_restore -d [Database Name] > backup_15-05-2024.dump
+```
