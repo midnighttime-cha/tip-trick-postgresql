@@ -1,4 +1,4 @@
-# SQL สำหรับ PostgreSQL
+# SQL และ แก้ปัญหา สำหรับ PostgreSQL
 
 ## สร้าง Database
 ```
@@ -86,4 +86,22 @@ CREATE EXTENSION postgis;
 ```
 pg_dump -h localhost -p 5432 -U [Username] -f backup_15-05-2024.dump [Database Name] -W
 pg_restore -d [Database Name] > backup_15-05-2024.dump
+```
+
+## ตั้งค่า Error: sorry, too many clients already.
+```
+nano /etc/postgresql/[POSTGRESQL VERSION]/main/postgresql.conf
+```
+แก้ไขตามนี้
+```
+max_connections = 300
+shared_buffers = 80MB
+```
+และไฟล์ sysctl.conf
+```
+nano /etc/sysctl.conf
+```
+เพิ่มคำสั่งต่อไปนี้ลงไป
+```
+kernel.shmmax=100663296
 ```
