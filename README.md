@@ -1,5 +1,10 @@
 # SQL และ แก้ปัญหา สำหรับ PostgreSQL
 
+## แก้ๆข Password
+```
+ALTER USER [Your Username] WITH ENCRYPTED PASSWORD '[New Password]';
+```
+
 ## สร้าง Database
 ```
 CREATE DATABASE [Your Database];
