@@ -1,6 +1,28 @@
 # SQL และ แก้ปัญหา สำหรับ PostgreSQL
 
-## แก้ๆข Password
+
+## สร้าง Database และ User พร้อมกับจัดการสิทธิ์การเข้าถึง
+```sql
+-- 1. สร้าง Database
+CREATE DATABASE [Your Database Name];
+
+-- 2. สร้าง User พร้อมรหัสผ่าน
+CREATE USER [Your Username] WITH PASSWORD 'your_secure_password';
+
+-- 3. มอบสิทธิ์การเป็นเจ้าของ Database ให้ user นี้
+ALTER DATABASE [Your Database Name] OWNER TO [Your Username];
+
+-- 4. ดึงสิทธิ์การเข้าถึง database อื่นๆ ออกจากกลุ่ม public
+REVOKE CONNECT ON DATABASE template1 FROM PUBLIC;
+
+-- 5. (ทำซ้ำกับ database อื่นๆ ที่คุณมี เช่น postgres)
+REVOKE CONNECT ON DATABASE postgres FROM PUBLIC;
+
+-- 6. อนุญาตเฉพาะ user [Your Username] ให้เข้าใช้งาน database [Your Database Name] เท่านั้น
+GRANT CONNECT ON DATABASE [Your Database Name] TO thaipost;
+```
+
+## แก้ไข Password
 ```
 ALTER USER [Your Username] WITH ENCRYPTED PASSWORD '[New Password]';
 ```
