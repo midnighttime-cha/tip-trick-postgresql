@@ -20,6 +20,10 @@ REVOKE CONNECT ON DATABASE postgres FROM PUBLIC;
 
 -- 6. อนุญาตเฉพาะ user [Your Username] ให้เข้าใช้งาน database [Your Database Name] เท่านั้น
 GRANT CONNECT ON DATABASE [Your Database Name] TO thaipost;
+
+-- 7. ซ่อนข้อมูลใน Database อื่น (Schema Level)
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+GRANT ALL ON SCHEMA public TO postgres; -- ให้ admin ยังใช้งานได้ปกติ
 ```
 
 ## แก้ไข Password
