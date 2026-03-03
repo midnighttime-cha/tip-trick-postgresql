@@ -19,7 +19,7 @@ REVOKE CONNECT ON DATABASE template1 FROM PUBLIC;
 REVOKE CONNECT ON DATABASE postgres FROM PUBLIC;
 
 -- 6. อนุญาตเฉพาะ user [Your Username] ให้เข้าใช้งาน database [Your Database Name] เท่านั้น
-GRANT CONNECT ON DATABASE [Your Database Name] TO thaipost;
+GRANT CONNECT ON DATABASE [Your Database Name] TO [Your Username];
 
 -- 7. ซ่อนข้อมูลใน Database อื่น (Schema Level)
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
