@@ -151,3 +151,26 @@ log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
 log_rotation_age = 1d
 log_rotation_size = 10MB
 ```
+
+## Grant สิทธิ์
+```
+-- ให้สิทธิ์ Connect เข้า Database
+GRANT CONNECT ON DATABASE [Your DB] TO [Your username];
+
+-- 1. ให้สิทธิ์การใช้งาน Schema
+GRANT USAGE ON SCHEMA public TO [Your username];
+
+-- 2. ให้สิทธิ์จัดการข้อมูลในตารางทั้งหมดที่มีอยู่ปัจจุบัน
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO [Your username];
+
+-- 3. ให้สิทธิ์ใช้งาน Sequence (จำเป็นสำหรับคอลัมน์ Auto-increment / SERIAL / IDENTITY)
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO [Your username];
+
+-- กำหนดให้ User ได้รับสิทธิ์ CRUD บนตารางที่สร้างขึ้นใหม่ในอนาคต
+ALTER DEFAULT PRIVILEGES IN SCHEMA public
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO [Your username];
+
+-- กำหนดสิทธิ์ Sequence ในอนาคต
+ALTER DEFAULT PRIVILEGES IN SCHEMA public
+GRANT USAGE, SELECT ON SEQUENCES TO [Your username];
+```
